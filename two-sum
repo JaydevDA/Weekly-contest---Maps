@@ -8,19 +8,19 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp; // Hash map to store numbers and their indices
+        unordered_map<int, int> mp;
 
         for (int i = 0; i < nums.size(); i++) {
-            int complement = target - nums[i];  // Find the required complement
+            int complement = target - nums[i];  
             
-            if (mp.count(complement)) { // If complement exists in map
-                return {mp[complement], i};  // Return the two indices
+            if (mp.count(complement)) { 
+                return {mp[complement], i};  
             }
 
-            mp[nums[i]] = i;  // Store the number with its index
+            mp[nums[i]] = i;
         }
 
-        return {};  // Return empty vector if no solution (should not happen as per constraints)
+        return {};  
     }
 };
 
@@ -28,26 +28,21 @@ int main() {
     Solution solution;
     int n, target;
 
-    // Taking input for the number of elements
     cout << "Enter the number of elements: ";
     cin >> n;
 
     vector<int> nums(n);
 
-    // Taking input for array elements
     cout << "Enter " << n << " numbers: ";
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
 
-    // Taking input for the target sum
     cout << "Enter target sum: ";
     cin >> target;
 
-    // Calling twoSum function
     vector<int> result = solution.twoSum(nums, target);
 
-    // Printing the output
     if (!result.empty()) {
         cout << "Indices: " << result[0] << " " << result[1] << endl;
     } else {
